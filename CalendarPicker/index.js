@@ -193,9 +193,9 @@ export default class CalendarPicker extends Component {
     const {
       currentMonth,
       currentYear,
-      selectedStartDate,
       selectedEndDate,
       styles,
+      selectedStartDate: internalSelectedStartDate
     } = this.state;
 
     const {
@@ -219,8 +219,9 @@ export default class CalendarPicker extends Component {
       maxRangeDuration,
       swipeConfig,
       customDatesStyles,
+      selectedStartDate: externalSelectedStartDate
     } = this.props;
-
+    const selectedStartDate = internalSelectedStartDate || externalSelectedStartDate;
     let disabledDatesTime = [];
 
     // Convert input date into timestamp
